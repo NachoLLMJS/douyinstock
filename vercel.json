@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/douyin", "destination": "/api/douyin" },
+    { "source": "/api/thumb", "destination": "/api/thumb" },
+    { "source": "/api/video", "destination": "/api/video" },
+    { "source": "/api/flap", "destination": "/api/flap" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
