@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TIKSTOCK</title>
+  <title>DOUYINSTOCK</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.1/ethers.umd.min.js"></script>
-  <link rel="icon" type="image/png" sizes="64x64" href="/assets/tikstock-favicon-64.png?v=2"/>
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/douyinstock-favicon-64.png?v=2"/>
   <link rel="shortcut icon" href="/favicon.ico?v=2"/>
-  <link rel="apple-touch-icon" href="/assets/tikstock-logo-256.png?v=2"/>
+  <link rel="apple-touch-icon" href="/assets/douyinstock-logo-256.png?v=2"/>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
   <style>
 /* ════════════════════════════════════════════════════════════════
-   TIKSTOCK — Douyin signal launcher on Flap
+   DOUYINSTOCK — Douyin signal launcher on Flap
    Cinematic trading-floor aesthetic with heavy motion + depth
    ════════════════════════════════════════════════════════════════ */
 
@@ -1158,7 +1158,7 @@ html, body {
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
 }
 
-/* TIKSTOCK — Flap-inspired terminal skin */
+/* DOUYINSTOCK — Flap-inspired terminal skin */
 :root {
   --bg-0:#050606; --bg-1:#080a0a; --bg-2:#0d1010;
   --surface:#090b0b; --surface-2:#101313; --surface-3:#151919;
@@ -1298,7 +1298,7 @@ body {
 
 <!-- ═════ ATMOSPHERIC LAYERS ═════ -->
 <div class="mesh"></div>
-<div class="watermark"><span>TIKSTOCK</span></div>
+<div class="watermark"><span>DOUYINSTOCK</span></div>
 <div class="bg-noise"></div>
 <div class="vignette"></div>
 <div class="spotlight"></div>
@@ -1321,9 +1321,9 @@ body {
   <!-- ═════ HEADER ═════ -->
   <header id="header">
     <div class="logo">
-      <img class="logo-icon" src="/assets/tikstock-logo-256.png?v=2" alt="" aria-hidden="true"/>
+      <img class="logo-icon" src="/assets/douyinstock-logo-256.png?v=2" alt="" aria-hidden="true"/>
       <div class="logo-stack">
-        <div class="logo-text">TIKSTOCK</div>
+        <div class="logo-text">DOUYINSTOCK</div>
         <div class="logo-sub">DOUYIN SIGNALS → FLAP LAUNCH</div>
       </div>
     </div>
@@ -1369,7 +1369,7 @@ body {
       <div class="modal-header">
         <div>
           <div class="modal-title"><span>◎</span> LIVE TOKENS</div>
-          <div style="font-size:9px;color:var(--muted);margin-top:3px">Tokens created through TIKSTOCK</div>
+          <div style="font-size:9px;color:var(--muted);margin-top:3px">Tokens created through DOUYINSTOCK</div>
         </div>
         <button class="modal-close" onclick="closePublicLaunchesModal()">✕</button>
       </div>
@@ -1391,9 +1391,9 @@ body {
       <div class="step-body">
 
         <div class="brand-card">
-          <img class="brand-logo-wrap" src="/assets/tikstock-logo-256.png?v=2" alt="TIKSTOCK logo"/>
+          <img class="brand-logo-wrap" src="/assets/douyinstock-logo-256.png?v=2" alt="DOUYINSTOCK logo"/>
           <div style="position:relative;z-index:1">
-            <div class="brand-name">TIKSTOCK</div>
+            <div class="brand-name">DOUYINSTOCK</div>
             <div class="brand-sub">DOUYIN HOT BOARD · FLAP</div>
           </div>
         </div>
@@ -1565,7 +1565,7 @@ body {
             <option value="0x3F53De71c126BdaBAe20f9cD64848d317f6C3238">GOOGLB · Alphabet</option>
             <option value="0xA394dCEa3fd3847fD793afBFd163E2e3858B7c65">HOODB · Robinhood</option>
           </datalist>
-          <div class="mode-note" style="margin-top:6px">Enter a BSC stock/asset address. TIKSTOCK validates it against Flap before launch. Leave blank for BNB.</div>
+          <div class="mode-note" style="margin-top:6px">Enter a BSC stock/asset address. DOUYINSTOCK validates it against Flap before launch. Leave blank for BNB.</div>
         </div>
 
         <div id="stock-vault-wrap">
@@ -1646,7 +1646,7 @@ const firebaseConfig = {
 };
 
 try {
-  const app = initializeApp(firebaseConfig, 'tikstock');
+  const app = initializeApp(firebaseConfig, 'douyinstock');
   const db = getFirestore(app);
   window.__dyfb = { db, collection, doc, setDoc, deleteDoc, onSnapshot, orderBy, query, serverTimestamp, limit };
   window.dispatchEvent(new Event('dy-firebase-ready'));
@@ -1657,7 +1657,7 @@ try {
 </script>
 <script>
 // ─────────────────────────────────────────────────────────────
-// TIKSTOCK — app logic
+// DOUYINSTOCK — app logic
 // (Preserves all original behavior; adds animated counters + confetti)
 // ─────────────────────────────────────────────────────────────
 
@@ -1741,7 +1741,7 @@ async function connectWallet() {
 }
 
 // ── Cache helpers ────────────────────────────────────────────
-const CACHE_KEY = 'tikstock_trends_cache_v7';
+const CACHE_KEY = 'douyinstock_trends_cache_v7';
 const CACHE_TTL = 5 * 60 * 1000;
 
 function loadCache() {
@@ -2678,7 +2678,7 @@ function burstSuccess() {
 </script>
 <script>
 // ════════════════════════════════════════════════════════════════
-// TIKSTOCK — visual effects layer (cursor, ticker, theme)
+// DOUYINSTOCK — visual effects layer (cursor, ticker, theme)
 // ════════════════════════════════════════════════════════════════
 
 // ── Cursor spotlight + per-card glow ────────────────────────
