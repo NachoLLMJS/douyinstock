@@ -294,6 +294,20 @@ html, body {
 }
 #launches-btn:hover { background: rgba(37,244,238,0.16); box-shadow: 0 0 28px rgba(37,244,238,0.3); transform: translateY(-1px); }
 
+#twitter-btn {
+  background: #f4f7f4;
+  border-color: #f4f7f4;
+  color: #050606;
+  text-decoration: none;
+}
+#twitter-btn:hover {
+  background: #ccff00;
+  border-color: #ccff00;
+  color: #050606;
+  box-shadow: 0 0 24px rgba(204,255,0,0.28);
+  transform: translateY(-1px);
+}
+
 .btn-counter {
   background: rgba(0,0,0,0.4);
   border-radius: 6px; padding: 1px 6px;
@@ -1195,6 +1209,8 @@ body {
 .bnb-price { background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;color:#e8eeee!important; }
 .bnb-price .label { color:#869090; }
 .btn-base { border-radius:3px!important;background:#090b0b!important;border:1px solid #303737!important;color:#e8eeee!important;box-shadow:none!important; }
+#twitter-btn { background:#f4f7f4!important;border-color:#f4f7f4!important;color:#050606!important; }
+#twitter-btn:hover { background:#ccff00!important;border-color:#ccff00!important;color:#050606!important;box-shadow:0 0 24px rgba(204,255,0,.28)!important; }
 #wallet-btn { border-color:#ccff00!important;color:#ccff00!important;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px); }
 #main { display:grid;grid-template-columns:190px minmax(0,1fr) 330px;gap:10px;background:transparent;padding:10px 14px 8px;width:100%;max-width:1680px;margin:0 auto; }
 .step-section { background:#080a0a;border:1px solid #303737;backdrop-filter:none;box-shadow:0 0 0 1px rgba(0,0,0,.5); }
@@ -1282,7 +1298,9 @@ body {
 }
 @media (max-width:720px) {
   #header { padding:0 10px; }
-  .logo-sub,#launches-btn,#public-launches-btn,#header a.btn-base { display:none!important; }
+  .logo-sub,#launches-btn,#public-launches-btn { display:none!important; }
+  #twitter-btn { padding:9px 10px; }
+  #twitter-btn .btn-label { display:none; }
   .logo-text { font-size:16px; }
   #main { grid-template-columns:1fr;padding:7px; }
   #step-1,#step-3 { min-height:auto; }
@@ -1336,7 +1354,10 @@ body {
       </div>
     </div>
 
-    <div style="display:flex;align-items:center;gap:10px">
+    <div class="header-actions" style="display:flex;align-items:center;gap:10px">
+      <a id="twitter-btn" class="btn-base" href="https://x.com/DouyinStock" target="_blank" rel="noopener noreferrer" aria-label="Follow DOUYINSTOCK on X">
+        <span aria-hidden="true">𝕏</span><span class="btn-label">FOLLOW</span>
+      </a>
       <button id="launches-btn" class="btn-base" onclick="openLaunchesModal()">
         <span>▤</span><span class="btn-label">MY LAUNCHES</span>
         <span class="btn-counter" id="launches-count">0</span>
