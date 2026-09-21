@@ -21,14 +21,26 @@ module.exports = async (req, res) => {
 
   const interval = ALLOWED_INTERVALS.has(String(req.query?.interval)) ? String(req.query.interval) : '1h';
   const limit = Math.min(500, Math.max(24, Number(req.query?.limit) || 168));
-  const url = `https://api.binance.com/api/v3/klines?symbol=ZECUSDT&interval=${interval}&limit=${limit}`;
+  const urls = [
+    `https://api.binance.com/api/v3/klines?symbol=ZECUSDT&interval=${interval}&limit=${limit}`,
+    `https://api.binance.us/api/v3/klines?symbol=ZECUSDT&interval=${interval}&limit=${limit}`,
+  ];
 
   try {
-    const response = await fetchWithTimeout(url);
-    const rows = await response.json().catch(() => null);
-    if (!response.ok || !Array.isArray(rows)) {
-      return res.status(502).json({ error: 'Binance market data is unavailable.' });
+    let rows = null;
+    for (const url of urls) {
+      try {
+        const response = await fetchWithTimeout(url);
+        const candidate = await response.json().catch(() => null);
+        if (response.ok && Array.isArray(candidate)) {
+          rows = candidate;
+          break;
+        }
+      } catch (_) {
+        // Try Binance's second public endpoint when a region blocks the first.
+      }
     }
+    if (!rows) return res.status(502).json({ error: 'Binance market data is unavailable.' });
     const candles = rows.map(row => ({
       time: Number(row[0]),
       open: Number(row[1]),
