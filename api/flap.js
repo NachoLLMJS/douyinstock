@@ -39,7 +39,7 @@ module.exports = async (req, res) => {
         Accept: 'application/json',
         Origin: 'https://flap.sh',
         Referer: 'https://flap.sh/',
-        'User-Agent': 'Mozilla/5.0 Douyin Flap Launcher',
+        'User-Agent': 'Mozilla/5.0 ZFUN ZEC Launcher',
       } }, 12000);
         const data = await response.json().catch(() => null);
         if (!response.ok || !data || data.allowed !== true) {

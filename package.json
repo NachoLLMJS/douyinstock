@@ -1,10 +1,10 @@
 {
-  "name": "douyinstock",
+  "name": "zfun-zec-launcher",
   "version": "3.0.0",
   "private": true,
   "scripts": {
     "start": "node local-server.js",
-    "check": "node --check api/douyin.js && node --check api/flap.js && node --check api/thumb.js && node --check api/video.js && node --check local-server.js && node scripts/check-inline-js.js"
+    "check": "node --check api/flap.js && node --check api/market.js && node --check api/launches.js && node --check local-server.js && node --check assets/zfun/pages.js && node scripts/check-inline-js.js"
   },
   "dependencies": {
     "ethers": "^6.16.0",

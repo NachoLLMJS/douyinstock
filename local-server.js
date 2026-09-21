@@ -8,7 +8,7 @@ const port = Number(process.env.PORT || 3000);
 app.use(express.json({ limit: '8mb' }));
 app.use(express.urlencoded({ extended: true, limit: '8mb' }));
 
-for (const name of ['douyin', 'flap', 'thumb', 'video']) {
+for (const name of ['flap', 'market', 'launches']) {
   const handler = require(path.join(root, 'api', `${name}.js`));
   app.all(`/api/${name}`, (req, res) => Promise.resolve(handler(req, res)).catch(error => {
     console.error(`[api/${name}]`, error);
@@ -16,9 +16,10 @@ for (const name of ['douyin', 'flap', 'thumb', 'video']) {
   }));
 }
 
+app.use('/api', (_req, res) => res.status(404).json({ error: 'API route not found' }));
 app.use(express.static(root, { index: 'index.html', extensions: ['html'] }));
 app.use((_req, res) => res.sendFile(path.join(root, 'index.html')));
 
 app.listen(port, '127.0.0.1', () => {
-  console.log(`Douyin Flap Launcher running at http://127.0.0.1:${port}`);
+  console.log(`ZFUN ZEC Launcher running at http://127.0.0.1:${port}`);
 });
